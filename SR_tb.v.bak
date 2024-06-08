@@ -1,0 +1,71 @@
+/*module SRFLIPFLOP_tb;
+reg clk,rst,s,r;
+wire q;
+SRFLIPFLOP TB(clk,rst,s,r,q);
+initial begin
+$monitor("clk=%0b,rst=%0b,s=%0b,r=%0b,q=%0b",clk,rst,s,r,q);
+clk=0;
+forever #5 clk=~clk;
+end
+initial begin
+s=1;r=1;clk=1'b1;rst=1'b0;
+#100  s=0;r=1;
+#100  s=1;r=0;
+#100  s=1;r=1;
+$finish;
+end
+endmodule*/
+
+/*module JKFLIPFLOP_tb;
+reg clk,rst,j,k;
+wire q;
+JKFLIPFLOP TB(clk,rst,j,k,q);
+initial begin
+$monitor("clk=%0b,rst=%0b,j=%0b,k=%0b,q=%0b",clk,rst,j,k,q);
+clk=0;
+forever #5 clk=~clk;
+end
+initial begin
+j=0;k=1;clk=1'b1;rst=1'b0;
+#100  j=0;k=0;
+#100  j=1;k=0;
+#100  j=1;k=1;
+$finish;
+end
+endmodule*/
+
+module DFLIPFLOP_tb;
+reg clk,rst,d;
+wire q;
+DFLIPFLOP tb(clk,rst,d,q);
+initial begin
+$monitor("clk=%0b,rst=%0b,d=%0b,q=%0b",clk,rst,d,q);
+clk=0;rst=0;
+d=0;
+#10 //clk=1;
+d=1;
+#10
+d=0;
+#10
+d=1;
+end
+always #5 clk=~clk;
+endmodule
+
+module TFLIPFLOP_tb;
+reg clk,rst,t;
+wire q;
+TFLIPFLOP tb(clk,rst,t,q);
+initial begin
+$monitor("clk=%0b,rst=%0b,t=%0b,q=%0b",clk,rst,t,q);
+clk=0; rst=0;
+t=0;
+#10
+t=1;
+#10
+t=1;
+#10
+t=0;
+end
+always #5 clk=~clk;
+endmodule
